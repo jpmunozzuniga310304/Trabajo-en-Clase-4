@@ -35,7 +35,7 @@ public class HomeController : Controller
         return View();
     }
 
-    [HttpPost]
+    [ActionName("Sumar")]
     public IActionResult Suma()
     {
         try
@@ -48,25 +48,41 @@ public class HomeController : Controller
         {
             ViewBag.Result = "Datos erroneos ingresados.";
         }
-        return View("bCalc");
+        return View("ActionName");
     }
 
 
     [NonAction]
-    public string SumTemp()
+    public IActionResult SumTemp()
     {
-        int num1 = Convert.ToInt32(HttpContext.Request.Form["n1"].ToString());
-        int num2 = Convert.ToInt32(HttpContext.Request.Form["n2"].ToString());
-        return (num1 + num2).ToString();
+        try
+        {
+            int num1 = Convert.ToInt32(HttpContext.Request.Form["n1"].ToString());
+            int num2 = Convert.ToInt32(HttpContext.Request.Form["n2"].ToString());
+            ViewBag.Result = (num1 + num2).ToString();
+        }
+        catch (Exception)
+        {
+            ViewBag.Result = "Datos erroneos ingresados.";
+        }
+        return View("NonAction");
     }
 
+
     [HttpPost]
-    public IActionResult Suma3()
+    public IActionResult Suma2()
     {
-        int num1 = Convert.ToInt32(HttpContext.Request.Form["n1"].ToString());
-        int num2 = Convert.ToInt32(HttpContext.Request.Form["n2"].ToString());
-        ViewBag.Result = (num1 + num2).ToString();
-        return View("bCalc");
+        try
+        {
+            int num1 = Convert.ToInt32(HttpContext.Request.Form["n1"].ToString());
+            int num2 = Convert.ToInt32(HttpContext.Request.Form["n2"].ToString());
+            ViewBag.Result = (num1 + num2).ToString();
+        }
+        catch (Exception)
+        {
+            ViewBag.Result = "Datos erroneos ingresados.";
+        }
+        return View("ActionVerbs");
     }
 }
 
