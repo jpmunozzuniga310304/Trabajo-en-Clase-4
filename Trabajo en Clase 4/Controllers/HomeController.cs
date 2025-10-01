@@ -9,7 +9,7 @@ public class HomeController : Controller
     public IActionResult Index()
     {
         var estudiante = new Estudiante(1, "Juan Pérez", 95);
-        return View(estudiante);
+        return View(estudiante); //default ViewData.Model
     }
     public IActionResult Privacy()
     {
