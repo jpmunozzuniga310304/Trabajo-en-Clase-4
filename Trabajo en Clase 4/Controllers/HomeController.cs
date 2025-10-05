@@ -11,9 +11,6 @@ namespace MvcApplication1.Controllers
     [LogActionFilter]
     public class HomeController : Controller
     {
-        [Route("")] //Home
-        [Route("Indice")] // Home/Index
-        [Route("/")] //""
         public IActionResult Index()
         {
             var estudiante = new Estudiante(1, "Juan Pérez", 95);
@@ -70,6 +67,9 @@ namespace MvcApplication1.Controllers
             ViewBag.Result = (num1 + num2).ToString();
             return View("ActionVerbs");
         }
+
     }
 
 }
+
+
